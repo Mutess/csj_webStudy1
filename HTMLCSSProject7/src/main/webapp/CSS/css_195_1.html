@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.wrap {
+	width: 900px;
+	height: 900px;
+	border: 2px solid green;
+	position: relative; /*div안에서 좌표점을 배치*/
+}
+img {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+}
+img.a {
+	top:0px;
+	left: 0px;
+}
+
+img.b {
+	top:0px;
+	right: 0px;
+}
+
+img.c {
+	bottom: 0px;
+	left: 0px;
+}
+
+img.d {
+	bottom: 0px;
+	right: 0px;
+}
+
+img.e {
+	top:350px;
+	left: 350px;
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+	<img src="c1.png" class="a">
+	<img src="c2.png" class="b">
+	<img src="c3.jpeg" class="c">
+	<img src="c4.png" class="d">
+	<img src="c5.png" class="e">
+  </div>
+</body>
+</html>

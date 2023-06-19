@@ -1,0 +1,60 @@
+<!-- onclick -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+let i=0; // 0은 open / 1은 close
+window.onload=function(){
+	let r=document.querySelector("#read");
+	// =>css제어할때는 <style>
+	r.onmouseover=function(){
+		r.style.cursor="pointer";
+	}
+	r.onmouseoit=function(){
+		r.style.cursor="none";
+	}
+	r.onclick=function(){
+		if(i==0) {
+			let ss=document.querySelector("#s");
+			ss.style.display='';
+			r.textContent="닫기"
+			i=1
+		}
+		else {
+			let ss=document.querySelector("#s");
+			ss.style.display='none';
+			r.textContent="더보기"
+			i=0;
+		}
+	}
+	//form태그에서 submit을 제거 => 이벤트 제거
+	//e.defaultPrevent()
+	document.querySelector("#click").onclick=function(){
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+	<a href="https://www.naver.com" id="click">Naver</a>
+	<pre>
+	6시간 동안 실종됐던 치매 노인이 얼굴과 몸 곳곳에 상처를 입고 발견돼 경찰이 실종 당시 상황을 확인하고 있다.
+
+	19일 경기 양주경찰서 등에 따르면 지난 14일 오후 1시쯤 의정부시의 한 병원을 방문한 80대 할머니가 함께 온 아들이 잠시 진료실에 들어간 사이 실종됐다.
+	
+	이후 가족들은 경찰에 실종신고를 했고 약 6시간 만에 병원에서 6㎞ 정도 떨어진 양주시의 길가에서 할머니를 발견했다.
+	
+	할머니는 눈 주변에 피멍이 들고 몸 곳곳에 폭행 흔적으로 보이는 상처가 있는 상태였다.
+	<span id="read">더보기</span>
+	<span style="display: none" id="s">
+	경찰은 할머니가 실종 뒤 폭행으로 상처를 입었는지 등을 확인하기 위해 CCTV 등을 조사하고 있다.
+	
+	현재까지 할머니가 넘어지는 장면 등은 포착됐으나 폭행을 의심할만한 정황은 파악되지 않은 것으로 전해졌다.
+	
+	경찰 관계자는 “실종 시간이 긴 편이라 동선을 꼼꼼하게 역추적하며 모든 가능성을 열어두고 조사 중”이라고 설명했다.
+	</span>
+	</pre>
+</body>
+</html>
