@@ -10,6 +10,8 @@
 	Date date = new Date();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	String today=sdf.format(date);
+	MainClass m=new MainClass();
+		String msg=m.display();
 	
 //	MainClass m = new MainClass();
 //	String msg=m.display();
@@ -26,7 +28,9 @@
 	<h1><%=out.getBufferSize() %></h1>
 	<h1><%=out.getRemaining() %></h1>
 	
-	<h1><%=out.getBufferSize() %></h1>
-	<h1><%=out.getRemaining() %></h1>
+	 <h1><%=msg %></h1>
+     <h1>총버퍼:<%= out.getBufferSize() %></h1>
+     <h1>남아있는 버퍼:<%= out.getRemaining() %></h1>
+     <h1>사용중 버퍼:<%= out.getBufferSize()-out.getRemaining() %></h1>
 </body>
 </html>
