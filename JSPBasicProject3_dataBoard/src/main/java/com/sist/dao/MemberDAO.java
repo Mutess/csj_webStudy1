@@ -3,6 +3,9 @@ package com.sist.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.sist.vo.MemberVO;
 
 public class MemberDAO {
 		//연결 객체 => Socket
@@ -39,6 +42,53 @@ public class MemberDAO {
 				dao=new MemberDAO();
 			return dao;
 		}
-		//기능
+		// 로그인 처리 기능
+		public MemberVO isLogin(String id,String pwd) {
+			MemberVO vo = new MemberVO();
+			try {
+				getConnection();
+				//ID 존재여부
+				String sql="SELECT COUNT(*) FROM jspMember "
+						+ "WHERE id=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, id);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				int count=rs.getInt(1);
+				rs.close();
+				
+				if (count==0) { //ID가 없는 상태
+					vo.setMsg("NOID");
+				} else {
+					//ID가 존재하는 상태
+					sql="SELECT id,name,sex,pwd "
+					  + "FROM jspMember "
+					  + "WHERE id=?";
+					ps=conn.prepareStatement(sql);
+					ps.setString(1, id);
+					rs=ps.executeQuery();
+					rs.next();
+					String db_id=rs.getString(1);
+					String name=rs.getString(2);
+					String sex=rs.getString(3);
+					String db_pwd=rs.getString(4);
+					rs.close();
+					
+					if(db_pwd.equals(pwd)) { //로그인
+						vo.setId(db_id);
+						vo.setName(name);
+						vo.setSex(sex);
+						vo.setMsg("OK");
+					}else { //비밀번호가 틀렸을때
+						vo.setMsg("NOPWD");
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				disConnection();
+			}
+			return vo;
+		}
 		
 }
