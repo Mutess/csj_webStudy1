@@ -30,5 +30,41 @@
 </head>
 <body>
 <h1>HttpSession(session):177page</h1>
+<table class="table">
+	<tr>
+		<td width="20%" class="text-center">클래스명</td>
+		<td width="80%">HttpSession(request로 생성이 가능:request.getSesseion())
+		<br>
+		<sub>request: session/cookie</sub>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" class="text-center">주요기능</td>
+		<td width="80%">
+			<ul>
+				<li>서버에서 클라이언트의 정보 저장</li>
+				<li>저장된 정보를 지속적으로 관리</li>
+				<li>전역변수러 사용이 가능 (모든 JSP에서 사용이 가능)</li>
+				<li>사용처:예약, 장바구니, 구매...</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" class="text-center">주요메소드</td>
+		<td width=80%>
+			<ul>
+				<li>***저장:setAttribute(String key, Object obj)</li>
+				<li>***저장 데이터 읽기: Object getAttribute(String Key):사용시 형변환</li>
+				<li>***전체 데이터 해제: invalidate()</li>
+				<li>***일부 정보 삭제: removeAttribute(String Key)</li>
+				<li>저장기간설정:setMaxinactiveInterval(int time):1/1000=> default</li>
+				<li>저장되는 기간 : 30분</li>
+				<li>생성여부를 확인 : isNew()</li>
+				<li>클라이언트당 1개의 session 공간:getId():webSocket</li>
+				<li>해당 세션이 생성된 시간:getCreateTime()</li>
+			</ul>
+		</td>
+	</tr>
+</table>
 </body>
 </html>

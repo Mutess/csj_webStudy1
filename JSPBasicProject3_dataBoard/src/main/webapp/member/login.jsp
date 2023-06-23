@@ -21,6 +21,9 @@ h1 {
 	text-align: center;
 	font-family: 'Dongle', sans-serif;
 }
+.table{
+	text-align: center;
+}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -108,6 +111,7 @@ $(function(){ //window.onload=function(){}
 				<tr>
 					<td colspan="2" class="text-center">
 					<input type="button" class="btn btn-sm btn-danger" value="로그인" id="logBtn">
+					<a href="../databoard/list.jsp" class="btn btn-sm btn-success">게스트로 로그인</a>
 					</td>
 				</tr>
 			</table>

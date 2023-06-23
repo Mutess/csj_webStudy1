@@ -40,6 +40,9 @@
 		2page=>75 = 85-(2*10-10) => 75
 	*/
 	String today=new SimpleDateFormat("yyyy-MM-dd").format(new Date()); //오늘 날짜
+	//session을 읽어 온다 : Object getAttribute()
+	String id=(String)session.getAttribute("id"); //키를 가지고 옴
+	// id가 null => 로그인이 안된 상태
 %>
 <!DOCTYPE html>
 <html>
@@ -68,6 +71,29 @@ h1 {
 	<div class="container">
 	<h1>자료실</h1>
 	<div class="row">
+
+	<table class="table">
+		<tr>
+		<%
+			if(id!=null){
+				
+		%>
+			<td class="text-right">
+				<%=session.getAttribute("name") %>님이 로그인했습니다
+				<a href="../member/logout.jsp" class="btn btn-sm btn-primary">로그아웃</a>
+			</td>
+			<%
+				}else{
+			%>
+				<td class="text-right">
+					<a href="../member/login.jsp" class="btn btn-sm btn-primary">로그인</a>
+				</td>
+			<%
+				}
+			%>
+		</tr>
+	</table>
+
 		<table class="table">
 			<tr>
 				<td>
@@ -129,8 +155,6 @@ h1 {
 		  %>
 		  <%
 		  		if(endPage<totalpage){
-		  			
-		  		
 		  %>
 		  <li><a href="list.jsp?page=<%=endPage+1%>">&gt;</a></li>
 		  <%
