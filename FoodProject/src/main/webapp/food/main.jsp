@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*, com.sist.vo.*, com.sist.dao.*"%>
  <%
-
-    	//자바가 들어가는 위치
-    	FoodDAO dao = FoodDAO.newInstance();
-    	List<CategoryVO> list = dao.foodCategoryData();
+ //자바가 들어가는 위치
+     	FoodDAO dao = FoodDAO.newInstance();
+     	List<CategoryVO> list = dao.foodCategoryData();
  %>
 <!DOCTYPE html>
 <html>
