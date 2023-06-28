@@ -1,6 +1,6 @@
 <%@page import="com.sist.dao.FoodDAO10"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.sist.dao.*, java.util.*"%>
+    pageEncoding="UTF-8" import="com.sist.dao.*,java.util.*"%>
 <%-- 
 	293page DBCP => DataBaseConnectionPool => 오라클에 미리 연결했다가 필요시 객체를 얻어서 사용
 	1. 연결 / 해제 반복
@@ -42,27 +42,27 @@
 	3. 반환 후 재사용
  --%>
  <%
- 	//1. 사용자가 전송한 데이터를 받는다 (page)
- 	String strPage=request.getParameter("page");
- 	//2. 실행과 동시에 페이지 전송이 불가능 => 첫페이지는 default 설정 (1)
- 	if (strPage==null)
- 		strPage="1";
- 	//3. 현재 페이지 지정
- 	int curpage=Integer.parseInt(strPage);
- 	//4. 현재페이지에 대한 데이터 읽기 (DAO=> 오라클)
- 	FoodDAO10 dao=FoodDAO10.newInstance();
- 	List<FoodBean> list = dao.foodListData(curpage);
- 	// 5. 총 페이지
- 	int totalpage=dao.foodTotalpage();
- 	// 6. 블록별 처리
- 	final int BLOCK=10;
- 	// 7. 시작위치
- 	int startPage=((curpage-1)/BLOCK*BLOCK)+1;
- 	// 8. 끝 위치
- 	int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
- 	if (endPage>totalpage) {
- 		endPage=totalpage;
- 	}
+ //1. 사용자가 전송한 데이터를 받는다 (page)
+  	String strPage=request.getParameter("page");
+  	//2. 실행과 동시에 페이지 전송이 불가능 => 첫페이지는 default 설정 (1)
+  	if (strPage==null)
+  		strPage="1";
+  	//3. 현재 페이지 지정
+  	int curpage=Integer.parseInt(strPage);
+  	//4. 현재페이지에 대한 데이터 읽기 (DAO=> 오라클)
+  	FoodDAO10 dao=FoodDAO10.newInstance();
+  	List<FoodBean> list = dao.foodListData(curpage);
+  	// 5. 총 페이지
+  	int totalpage=dao.foodTotalpage();
+  	// 6. 블록별 처리
+  	final int BLOCK=10;
+  	// 7. 시작위치
+  	int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+  	// 8. 끝 위치
+  	int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+  	if (endPage>totalpage) {
+  		endPage=totalpage;
+  	}
  %>
 <!DOCTYPE html>
 <html>

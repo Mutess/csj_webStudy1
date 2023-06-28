@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*, com.sist.dao.*"%>
 <%
-	//객체 생성
+//객체 생성
 	FoodDAO13 dao=FoodDAO13.newInstance();
 	List<FoodBean> list=dao.foodAllData();
 %>
