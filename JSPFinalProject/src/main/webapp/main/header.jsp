@@ -27,7 +27,7 @@ $(function(){
 		$.ajax({
 			type:'post',
 			url:'../member/login.do',
-			data:{"id":id,"pwd:":pwd},
+			data:{"id":id,"pwd":pwd},
 			success:function(result) {//NOID, NOPWD, OK
 				let res=result.trim();
 				if(res==='NOID'){
@@ -69,7 +69,7 @@ $(function(){
       <c:if test="${sessionScope.id!=null }">
       <ul class="inline">
       	<li>${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반 사용자" }) 님 환영합니다</li>
-        <li><input type="button" value=로그인 class="btn btn-sm btn-danger" size=15 id="logoutBtn"></li>
+        <li><input type="button" value=로그아웃 class="btn btn-sm btn-danger" size=15 id="logoutBtn"></li>
       </ul>
       </c:if>
     </div>
@@ -140,7 +140,7 @@ $(function(){
       <li><a class="drop" href="#">커뮤니티</a>
         <ul>
           <li><a href="pages/gallery.html">공시사항</a></li>
-          <li><a href="pages/full-width.html">자유게시판</a></li>
+          <li><a href="../board/list.do">자유게시판</a></li>
           <c:if test="${sessionScope.id!=null }">
           <li><a href="pages/sidebar-left.html">묻고 답하기</a></li>
           </c:if>

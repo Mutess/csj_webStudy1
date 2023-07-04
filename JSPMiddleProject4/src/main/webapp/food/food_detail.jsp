@@ -74,11 +74,9 @@
 		<div class="row">
 			<table class="table">
 				<tr>
-					<td>
-						<c:forTokens items="${vo.poster }" delims="^" var="img">
-							<td><img src="${img }" style="width: 100%"></td>
-						</c:forTokens>
-					</td>	
+					<c:forTokens items="${vo.poster }" delims="^" var="img">
+						<td><img src="${img }" style="width: 100%"></td>
+					</c:forTokens>
 				</tr>
 			</table>
 		</div>
