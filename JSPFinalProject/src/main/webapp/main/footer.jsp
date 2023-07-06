@@ -15,7 +15,7 @@
       <h6 class="title">인기 맛집 Top 7</h6>
 	      <ul class="nospace linklist">
 	      <c:forEach var="fvo" items="${fList }">
-	        <li><a href="#">${fvo.name }&nbsp;(${fvo.hit })</a></li>
+	        <li><a href="../food/food_detail_before.do?fno=${fvo.fno }">${fvo.name }&nbsp;(${fvo.hit })</a></li>
 	      </c:forEach>
 	      </ul>
     </div>
