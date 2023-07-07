@@ -71,6 +71,12 @@ public class FreeboardModel {
 		
 		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../board/detail.jsp");
+		
+		// 댓글 읽기
+		FreeBoardReplyDAO fdao=FreeBoardReplyDAO.newInstance();
+		List<FreeboardReplyVO> list=fdao.replyListData(Integer.parseInt(no));
+		request.setAttribute("list", list);
+		
 		commonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}

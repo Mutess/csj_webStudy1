@@ -19,9 +19,20 @@ package com.sist.vo;
 public class FoodVO {
 	private int fno, cno, good, soso,bad, hit;
 	private double score;
-	private String name, address, phone, type, price,parking, time, menu, poster;
+	private String name, address, phone, type, price,parking, time, menu, poster, msg, rname;
 	
-	
+	public String getRname() {
+		return rname;
+	}
+	public void setRname(String rname) {
+		this.rname = rname;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 	public int getHit() {
 		return hit;
 	}
