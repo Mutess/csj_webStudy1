@@ -6,7 +6,20 @@ import com.sist.common.*;
 import com.sist.vo.*;
 
 import oracle.jdbc.OracleTypes;
-
+/*
+	try{
+		getConnection();
+		insert
+		update
+		insert
+		commit();
+	}catch(Exception e){
+		rollback();
+		e.printStackTrace();
+	}finally{
+		disConnection
+	}
+ */
 public class ReplyDAO {
 	private Connection conn;
 	private CallableStatement cs;
@@ -141,4 +154,5 @@ public class ReplyDAO {
 			db.disConnection(conn, cs);
 		}
 	}
+	// 대댓글 입력 => 트랜잭션
 }

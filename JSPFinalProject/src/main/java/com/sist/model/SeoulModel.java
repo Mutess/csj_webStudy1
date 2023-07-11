@@ -54,6 +54,12 @@ public class SeoulModel {
 		request.setAttribute("type", type);
 		request.setAttribute("main_jsp", "../seoul/seoul_detail.jsp");
 		commonModel.commonRequestData(request);
+		
+		String addr=vo.getAddress();
+		String addr1=addr.substring(addr.indexOf(" ")+1);
+		String addr2=addr1.substring(addr1.indexOf(" ")+1);
+		String addr3=addr2.substring(0,addr2.indexOf(" "));
+		request.setAttribute("addr", addr3.trim()+" 맛집");
 		return "../main/main.jsp";
 	}
 }
