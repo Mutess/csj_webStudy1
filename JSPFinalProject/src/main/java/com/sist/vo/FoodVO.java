@@ -19,8 +19,15 @@ package com.sist.vo;
 public class FoodVO {
 	private int fno, cno, good, soso,bad, hit;
 	private double score;
-	private String name, address, phone, type, price,parking, time, menu, poster, msg, rname;
+	private String name, address, phone, type, price,parking, time, menu, poster, msg, rname, reserve_day;
 	
+	
+	public String getReserve_day() {
+		return reserve_day;
+	}
+	public void setReserve_day(String reserve_day) {
+		this.reserve_day = reserve_day;
+	}
 	public String getRname() {
 		return rname;
 	}
