@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.common.commonModel;
 import com.sist.controller.RequestMapping;
+import com.sist.dao.FoodJjimLikeDAO;
 import com.sist.dao.ReserveDAO;
 import java.util.*;
 import com.sist.vo.*;
@@ -26,6 +27,20 @@ public class MyPageModel {
 		
 		request.setAttribute("list", list);
 		request.setAttribute("mypage_jsp", "../mypage/mypage_reserve.jsp");
+		request.setAttribute("main_jsp", "../mypage/mypage_main.jsp");
+		commonModel.commonRequestData(request);
+		return "../main/main.jsp";
+	}
+	// id, name, admin => session
+	// 나머지는 ?뒤에 값 전송
+	@RequestMapping("mypage/mypage_jjim_list.do")
+	public String mypage_jjim(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		FoodJjimLikeDAO dao=FoodJjimLikeDAO.newInstance();
+		List<FoodJJimVO> list=dao.foodJjimListData(id);
+		request.setAttribute("list", list);
+		request.setAttribute("mypage_jsp", "../mypage/mypage_jjim.jsp");
 		request.setAttribute("main_jsp", "../mypage/mypage_main.jsp");
 		commonModel.commonRequestData(request);
 		return "../main/main.jsp";

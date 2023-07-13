@@ -49,7 +49,7 @@
   <div id="copyright" class="clear"> 
     <!-- ################################################################################################ -->
     <p class="fl_left">Copyright &copy; 2023 - 강북쌍용교육센터 - <a href="#">D강의장</a></p>
-    <p class="fl_right">Product By <a target="_blank" href="#" title="Free Website Templates">ㅇㅇ</a></p>
+    <p class="fl_right">Product By <a target="_blank" href="#" title="Free Website Templates">Iris</a></p>
     <!-- ################################################################################################ --> 
   </div>
 </div>

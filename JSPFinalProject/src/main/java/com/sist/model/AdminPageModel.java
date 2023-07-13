@@ -3,6 +3,7 @@ package com.sist.model;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sist.common.commonModel;
 import com.sist.controller.RequestMapping;
 import java.util.*;
 import com.sist.dao.*;
@@ -21,6 +22,7 @@ public class AdminPageModel {
 		request.setAttribute("list", list);
 		request.setAttribute("adminpage_jsp", "../adminpage/adminpage_reserve.jsp");
 		request.setAttribute("main_jsp", "../adminpage/adminpage_main.jsp");
+		commonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
 	@RequestMapping("adminpage/admin_reserve_ok.do")
@@ -28,6 +30,7 @@ public class AdminPageModel {
 		String no=request.getParameter("no");
 		ReserveDAO dao=ReserveDAO.newInstance();
 		dao.reserveOk(Integer.parseInt(no));
+		commonModel.commonRequestData(request);
 		return "redirect:../adminpage/adminpage_reserve.do";
 	}
 }

@@ -88,7 +88,7 @@ $(function(){
   				<c:if test="${vo.menu!='no' }">
   				<tr>
   					<th width="20%" class="text-center">메뉴</th>
-  					<td width="80%">${vo.menu }
+  					<td width="80%">
   						<ul>
   							<c:forTokens items="${vo.menu }" delims="원" var="m">
   								<li>${m }</li>
@@ -99,9 +99,21 @@ $(function(){
   				</c:if>
   				<tr>
   					<td colspan="2" class="text-right">
-  						<a href="#" class="btn btn-xs btn-danger">찜하기</a>
-  						<a href="#" class="btn btn-xs btn-success">좋아요(0)</a>
-  						<a href="#" class="btn btn-xs btn-info">예약</a>
+  						<c:if test="${sessionScope.id!=null }">
+  						  <c:if test="${jjim_count==0 }">
+	  						<a href="../jjim/jjim_insert.do?fno=${vo.fno }" class="btn btn-xs btn-danger">찜하기</a>
+	  					  </c:if>
+	  					  <c:if test="${jjim_count!=0 }">
+	  					    <span class="btn btn-xs btn-gray">찜하기</span>
+	  					  </c:if>
+	  					  <c:if test="${like_count==0 }">
+	  						<a href="../like/like_insert.do?fno=${vo.fno }" class="btn btn-xs btn-success">좋아요(${like_total })</a>
+	  					  </c:if>
+	  					  <c:if test="${like_count!=0 }">
+	  					  	<span class="btn btn-xs btn-gray">좋아요(${like_total })</span>
+	  					  </c:if>
+	  						<a href="../reserve/reserve_main.do" class="btn btn-xs btn-info">예약</a>
+  						</c:if>
   						<a href="../food/food_category_list.do?cno=${vo.cno }" class="btn btn-xs btn-warning">목록</a>
   					</td>
   				</tr>
@@ -213,6 +225,26 @@ $(function(){
 				    } 
 				});    
 				</script>
+			<div style="height: 10px"></div>
+			<table class="table">
+				<caption><h3>레시피</h3></caption>
+				<tr>
+					<td>
+						<c:forEach var="rvo" items="${reList }">
+							<table class="table">
+								<tr>
+									<td class="text-center">
+										<img src="${rvo.poster }" style="width: 100%">
+									</td>
+								</tr>
+								<tr>
+									<td>${rvo.title }</td>
+								</tr>
+							</table>
+						</c:forEach>
+					</td>
+				</tr>
+			</table>
   		</div>
   	</div>
   </main>
