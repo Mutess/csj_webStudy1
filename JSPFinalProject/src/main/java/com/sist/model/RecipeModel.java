@@ -5,6 +5,7 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sist.common.commonModel;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.*;
 import com.sist.vo.*;
@@ -37,6 +38,7 @@ public class RecipeModel {
 		request.setAttribute("list", list);
 		
 		request.setAttribute("main_jsp", "../recipe/recipe_List.jsp");
+		commonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
 	@RequestMapping("recipe/chef.do")
@@ -54,6 +56,7 @@ public class RecipeModel {
 		request.setAttribute("list", list);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("main_jsp", "../recipe/chef.jsp");
+		commonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
 	@RequestMapping("recipe/chef_list.do")
@@ -99,6 +102,7 @@ public class RecipeModel {
 		request.setAttribute("fd", fd);
 		
 		request.setAttribute("main_jsp", "../recipe/chef_list.jsp");
+		commonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
 }

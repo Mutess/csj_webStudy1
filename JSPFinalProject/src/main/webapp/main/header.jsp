@@ -61,8 +61,8 @@ $(function(){
     <div class="fl_right">
     <c:if test="${sessionScope.id==null }">
       <ul class="inline">
-        <li><i class="fa fa-envelope-o"></i><input type="text" name=id class="input-sm" size=15 id=id></li>
-        <li><i class="fa fa-envelope-o"></i><input type="password" name=pwd class="input-sm" size=15 id=pwd></li>
+        <li><i class="fa fa-envelope-o"></i><input type="text" name=id class="input-sm" size=15 id=id placeholder="ID"></li>
+        <li><i class="fa fa-envelope-o"></i><input type="password" name=pwd class="input-sm" size=15 id=pwd placeholder="PASSWORD"></li>
         <li><input type="button" value=로그인 class="btn btn-sm btn-danger" size=15 id=logBtn></li>
       </ul>
       </c:if>
