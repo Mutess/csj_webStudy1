@@ -142,7 +142,7 @@ $(function(){
           <li><a href="../notice/notice_list.do">공시사항</a></li>
           <li><a href="../board/list.do">자유게시판</a></li>
           <c:if test="${sessionScope.id!=null }">
-          <li><a href="pages/sidebar-left.html">묻고 답하기</a></li>
+          <li><a href="../replyboard/list.do">묻고 답하기</a></li>
           </c:if>
         </ul>
       </li>

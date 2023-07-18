@@ -10,7 +10,8 @@
 <script type="text/javascript">
 $(function(){
 	$('#year').change(function(){
-		$('#frm').submit()
+	/* 	$('#frm').submit() */
+	location.reload();
 	})
 	$('#month').change(function(){
 		$('#frm').submit()
@@ -40,7 +41,7 @@ $(function(){
 </head>
 <body>
 		<h1>${year }년도 ${month }월</h1>
-		<form method="post" action="diary3.do" id="frm">
+		<form method="post" action="diary3.jsp" id="frm">
 			<table class="table">
 				<tr>
 					<td>
