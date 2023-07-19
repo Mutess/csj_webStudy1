@@ -140,7 +140,7 @@ function requestPay() {
 	          </form>
 	          <input type=button class="btn btn-lg btn-info" value="바로구매" style="width: 150px" data-price="${price }" id="byBtn">
 	        </td>
-	       </tr>
+	       </tr> 
        </c:if>
      </table>
     </div>
