@@ -99,7 +99,7 @@ public class CartDAO {
 		List<CartVO> list=new ArrayList<CartVO>();
 		try {
 			conn=db.getConnection();
-			String sql="SELECT cart_id,goods_no,"
+			String sql="SELECT cart_no,goods_no,"
 					 + "(SELECT goods_name FROM "+tab[type]+" WHERE no=pc.goods_no) as goods_name,"
 					 + "(SELECT goods_poster FROM "+tab[type]+" WHERE no=pc.goods_no) as goods_poster,"
 					 + "(SELECT goods_price FROM "+tab[type]+" WHERE no=pc.goods_no) as goods_price,"
